@@ -39,7 +39,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     // 반환값이 있는 델리게이트 
     // Func<T1, T2, ...., Tn>
     public static Func<int, int, int> OnHealing = (currHp, healAmount) => currHp + healAmount;
+    
+    // 4. Event
+    // 외부 클래스에서 +=, -= 허용, 직접 Invoke 할 수 없다.
+    // 캡슐화(보안성)
 
+    public static event Action<int> OnGainPlayerExp;
+
+    // 플레이어 경험치
+    private int playerExp = 0;
+    
+    public void GainPlayerExp(int exp)
+    {
+        playerExp += exp;
+        OnGainPlayerExp?.Invoke(playerExp);
+    }
+    
     public void Heal(int amount)
     {
         hp = OnHealing(hp, amount);
@@ -69,6 +84,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (GUI.Button(new Rect(10, 110, 300, 100), "Heal"))
         {
             Heal(10);
+        }
+        
+        if (GUI.Button(new Rect(10, 210, 300, 100), "Take Exp"))
+        {
+            GainPlayerExp(1000);
         }
     }
 }
