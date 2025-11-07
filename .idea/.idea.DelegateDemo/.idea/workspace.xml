@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a78e089e-18de-417e-a6ce-9ac38e0a187f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/01_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Scenes/SampleScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="a78e089e-18de-417e-a6ce-9ac38e0a187f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +29,7 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/jaehyun/Desktop/DelegateDemo/Assets/02_Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/jaehyun/Desktop/DelegateDemo/Assets/02_Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10f16eb438b24f73a6b4a6c383f4ef54177000/3b/4477c3d9/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -126,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762499262705</updated>
-      <workItem from="1762499264697" duration="2059000" />
+      <workItem from="1762499264697" duration="2362000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Implement delegate functionality in PlayerController">
       <option name="closed" value="true" />
@@ -144,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762501027852</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: Update PlayerController to include current and max HP in health change delegate; add UIManager for health bar updates">
+      <option name="closed" value="true" />
+      <created>1762501634091</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762501634091</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +169,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="feat: Implement delegate functionality in PlayerController" />
     <MESSAGE value="feat: Add IDamageable interface and delegate for player health management" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add IDamageable interface and delegate for player health management" />
+    <MESSAGE value="feat: Update PlayerController to include current and max HP in health change delegate; add UIManager for health bar updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Update PlayerController to include current and max HP in health change delegate; add UIManager for health bar updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

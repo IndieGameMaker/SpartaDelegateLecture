@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /*
@@ -22,11 +21,19 @@ public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int hp = 100;
     
-    // 델리게이트 선언
-    public delegate void PlayerHpHandler(int currHp, int maxHp);
+    // 1. 델리게이트 문법
+    // // 델리게이트 선언
+    // public delegate void PlayerHpHandler(int currHp, int maxHp);
+    //
+    // // 델리게이트 변수 선언
+    // public static PlayerHpHandler OnPlayerHpChanged;
     
-    // 델리게이트 변수 선언
-    public static PlayerHpHandler OnPlayerHpChanged;
+    // 2. Action
+    // .NET에 미리 정의되어 있는 내장 델리게이트
+    public static Action<int, int> OnPlayerHpChanged;
+
+    public static Action OnPlayerDie;
+    
     
     public void TakeDamage(int damage)
     {
