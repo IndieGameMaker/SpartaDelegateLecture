@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private int hp = 100;
     
     // 델리게이트 선언
-    public delegate void PlayerHpHandler();
+    public delegate void PlayerHpHandler(int currHp, int maxHp);
     
     // 델리게이트 변수 선언
     public static PlayerHpHandler OnPlayerHpChanged;
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         hp -= damage;
         Debug.Log($"피격 {hp}");
 
+        OnPlayerHpChanged?.Invoke(hp, 100);
+        
         if (hp <= 0)
         {
             Debug.Log("플레이어 사망");
