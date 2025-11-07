@@ -13,22 +13,37 @@ using UnityEngine;
  
  */
 
-public class PlayerController : MonoBehaviour
+interface IDamageable
 {
-    // 1. 델리게이트를 선언
-    private delegate void SampleDelegate();
+    void TakeDamage(int damage);
+}
+
+public class PlayerController : MonoBehaviour, IDamageable
+{
+    [SerializeField] private int hp = 100;
     
-    void Start()
+    // 델리게이트 선언
+    public delegate void PlayerHpHandler();
+    
+    // 델리게이트 변수 선언
+    public static PlayerHpHandler OnPlayerHpChanged;
+    
+    public void TakeDamage(int damage)
     {
-        // 델리게이트 변수에 메소드를 할당
-        SampleDelegate sample = Sample01;
-        
-        // 델리게이트 실행
-        sample?.Invoke();
+        hp -= damage;
+        Debug.Log($"피격 {hp}");
+
+        if (hp <= 0)
+        {
+            Debug.Log("플레이어 사망");
+        }
     }
 
-    private void Sample01()
+    private void OnGUI()
     {
-        Debug.Log("Sample01 호출");
+        if (GUI.Button(new Rect(10, 10, 300, 100), "Take Damage"))
+        {
+            TakeDamage(20);
+        }
     }
 }
