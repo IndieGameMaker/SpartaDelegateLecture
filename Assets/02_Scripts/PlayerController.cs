@@ -29,11 +29,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     // public static PlayerHpHandler OnPlayerHpChanged;
     
     // 2. Action
+    // 반환값이 없는 델리게이트
     // .NET에 미리 정의되어 있는 내장 델리게이트
     public static Action<int, int> OnPlayerHpChanged;
 
     public static Action OnPlayerDie;
     
+    // 3. Func
+    // 반환값이 있는 델리게이트 
+    // Func<T1, T2, ...., Tn>
+    public static Func<int, int, int> OnHealing = (currHp, healAmount) => currHp + healAmount;
+
+    public void Heal(int amount)
+    {
+        hp = OnHealing(hp, amount);
+        Debug.Log("Heal " + hp);
+    }
     
     public void TakeDamage(int damage)
     {
@@ -53,6 +64,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (GUI.Button(new Rect(10, 10, 300, 100), "Take Damage"))
         {
             TakeDamage(20);
+        }
+        
+        if (GUI.Button(new Rect(10, 110, 300, 100), "Heal"))
+        {
+            Heal(10);
         }
     }
 }
